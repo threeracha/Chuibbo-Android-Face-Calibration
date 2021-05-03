@@ -13,4 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+
+# c++ library folder - dlib file path
 app/src/main/cppLibs
