@@ -3,35 +3,20 @@ package com.example.testapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AlertDialog;
+//import com.example.testapplication.opengl.OpenGLMainActivity;
 
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.SurfaceView;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void copyFile(String filename) {
         String baseDir = Environment.getExternalStorageDirectory().getPath();
-        String pathDir = baseDir + File.separator +filename;
+        String pathDir = baseDir + File.separator + filename;
 
         AssetManager assetManager = this.getAssets();
 
@@ -95,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             mediaScanIntent.setData(Uri.fromFile(a));
             sendBroadcast(mediaScanIntent);
 
-            ImageView imageView = (ImageView)findViewById(R.id.result_img);
+            ImageView imageView = (ImageView) findViewById(R.id.result_img);
             File imgFile = new File("/storage/emulated/0/camtest/output.bmp");
             Bitmap bitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             int height = bitmap.getHeight();
@@ -134,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        copyFile("shape_predictor_68_face_landmarks.dat");
+//        copyFile("shape_predictor_68_face_landmarks.dat");
 
-        Log.v("android external storage path",android.os.Environment.getExternalStorageDirectory().getAbsolutePath());
+        Log.v("android external storage path", android.os.Environment.getExternalStorageDirectory().getAbsolutePath());
 
 
         Button button2 = findViewById(R.id.btn_detect);
@@ -149,5 +134,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button facemesh = findViewById(R.id.btn_to_facemesh);
+        facemesh.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FaceMeshActivity.class);
+                startActivity(intent);
+            }
+        });
+
+//        Button opengl = findViewById(R.id.btn_to_opengl);
+//        opengl.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), OpenGLMainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

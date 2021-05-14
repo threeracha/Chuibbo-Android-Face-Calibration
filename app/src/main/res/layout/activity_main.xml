@@ -16,6 +16,24 @@
         tools:layout_editor_absoluteY="162dp" />
 
     <Button
+        android:id="@+id/btn_to_opengl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OpenGL"
+        app:layout_constraintBottom_toTopOf="@id/btn_detect"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_to_facemesh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="facemesh"
+        app:layout_constraintBottom_toTopOf="@id/btn_to_opengl"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
         android:id="@+id/btn_detect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

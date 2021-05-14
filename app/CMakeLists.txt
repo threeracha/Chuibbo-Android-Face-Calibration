@@ -58,6 +58,9 @@ add_library( # Sets the name of the library.
         src/main/cpp/native-lib.cpp
 
         src/main/cpp/faceDetect.cpp
+
+        src/main/cpp/faceSlender.cpp
+
         )
 
 target_include_directories( ${TARGET_NAME} PRIVATE
